@@ -1,0 +1,23 @@
+---
+driver:
+  name: dokken
+  chef_version: latest
+
+transport:
+  name: dokken
+
+provisioner:
+  name: dokken
+
+platforms:
+  - name: centos-7
+    driver:
+      image: centos:7.5.1804
+
+verifier:
+  name: inspec
+
+suites:
+  - name: default
+    run_list:
+    attributes:
