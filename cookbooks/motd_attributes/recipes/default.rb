@@ -23,3 +23,6 @@ node.default['ipaddress'] = '1.1.1.1'
 node.default['motd_attributes']['company'] = "No'Reilly"
 # duplicate an existing recipe attribute with different values; this will work but only implements the last attribute
 node.default['motd_attributes']['message'] = "It's a horrible day today!"
+
+# Leverage attributes declared in a different recipe
+include_recipe 'motd_attributes::java'
