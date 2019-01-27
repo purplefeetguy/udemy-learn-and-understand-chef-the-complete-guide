@@ -1,7 +1,6 @@
-This node is running on <%= node['virtualization']['system'] %>
-The IP address of this node is <%= node['ipaddress'] %>
-<%= node['motd_attributes']['message'] %>
-Welcome to <%= node['motd_attributes']['company'] %>
-JAVA_HOME on this node is <%= node['motd_attributes']['java_home'] %>
-Java binary is <%= node['motd_attributes']['java_bin'] %>
-Tomcat binary is <%= node['motd_attributes']['tomcat_bin'] %>
+<%# evaluate the Ruby CODE below %>
+<% node['motd_attributes']['motd'].each do |line| -%>
+<%# evaluate the variable expression "line" %>
+<%= line %>
+<%# evaluate the variable expression below and trim out line breaks %>
+<% end -%>

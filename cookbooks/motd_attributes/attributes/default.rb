@@ -14,3 +14,20 @@ default['motd_attributes']['java_bin'] = 'usr/local/bin/java'
 default['motd_attributes']['tomcat_home'] = '/usr/local/tomcat6'
 # expectation for below composed attribute is /usr/local/tomcat6/bin/tomcat
 default['motd_attributes']['tomcat_bin'] = "#{node['motd_attributes']['tomcat_home']}/bin/tomcat"
+
+# Since we are now using attributes driven actions, we will need the "message" attribute
+# to be set in the attributes file, not the recipe, so copy from recipe to below
+default['motd_attributes']['message'] = "It's a wonderful day today!"
+
+# by changing or blaning out the contents of this attribute, which poplutate motd
+# you can effectively change or "uninstall" the motd message
+default['motd_attributes']['motd'] = [
+  "This node is running on #{node['virtualization']['system']}",
+  "The IP address of this node is #{node['ipaddress']}",
+  node['motd_attributes']['message'],
+  "Welcome to #{node['motd_attributes']['company']}",
+  "JAVA_HOME on this node is #{node['motd_attributes']['java_home']}",
+  "Java binary is #{node['motd_attributes']['java_bin']}",
+  "Tomcat binary is #{node['motd_attributes']['tomcat_bin']}",
+
+]
