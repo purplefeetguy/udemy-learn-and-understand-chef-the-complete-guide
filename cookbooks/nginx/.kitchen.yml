@@ -10,7 +10,7 @@ provisioner:
   name: dokken
 
 platforms:
-  - name: centos73
+  - name: centos7
     driver:
       image: centos:latest
       pid_one_command: /usr/lib/systemd/systemd
